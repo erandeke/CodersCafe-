@@ -1,7 +1,9 @@
-/* Author : Kedar Erande */
-/*
+/**
+ * @author Kedar Erande
+ */
 
-Length of longest consecutive ones
+
+/*Length of longest consecutive ones
 Given a binary string A. It is allowed to do at most one swap between any 0 and 1. Find and return the length of the longest consecutive
 1’s that can be achieved.
 
@@ -85,6 +87,7 @@ public class ConsecutiveOnes {
         for (int i = 1; i < A.length() - 1; i++) {
             if (A.charAt(i) == '0') {
                 int sum = left[i - 1] + right[i + 1];
+                //this condition is just to check if we not reach where max = all count
                 if (sum < cnt_one) {
                     max = Math.max(max, sum + 1);
                 } else {

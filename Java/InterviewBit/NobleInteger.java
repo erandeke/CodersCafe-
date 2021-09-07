@@ -1,4 +1,7 @@
-/* Author : Kedar Erande */
+/**
+ * @author Kedar Erande
+ */
+
 
 /*
 
@@ -36,6 +39,7 @@ public class NobleInteger {
         for(int i=1;i<A.size();i++)
         {
             //input : 20,10,8,6,5,5
+            //the A.get(i)!=A.get(i-1)--> to skip duplicates example : 4,4,4,4,4,1 --No noble integer
             if(A.get(i)==i && A.get(i) != A.get(i-1))
                 return 1;
         }
