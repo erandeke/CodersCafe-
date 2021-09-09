@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @author Kedar Erande
- * <p>
+ * 
  * PS->You are given an array A, consisting of the street numbers of hotels your friend has visited. Every street has just one hotel. Your friend can visit a hotel multiple times too.
  * You are supposed to make another array, that stores the indices of the hotels your friend has visited. The array should ignore the multiple visits to each hotel, and should only consider the last visit made to that hotel.
  * The array elements should be in order of visiting the hotels.
