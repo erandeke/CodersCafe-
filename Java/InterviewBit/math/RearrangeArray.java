@@ -14,6 +14,8 @@ package math;
  * so "a" should be incremented by such way that it will give the quotient as index
  * we do not want mod to return index as it may give 0 when directly divisible
  * Tc: O(n)
+ *
+ * Old value can be obtained by arr[i]%n and a new value can be obtained by arr[i]/n.
  */
 public class RearrangeArray {
     public static void main(String[] args) {
