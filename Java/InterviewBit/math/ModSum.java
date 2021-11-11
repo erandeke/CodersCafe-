@@ -10,7 +10,7 @@ public class ModSum {
     }
 
     private static int getTheModSum(int arr[]) {
-        int mod = (int) 10e9 + 7;
+        int mod = (int) 1e9 + 7;
         int n = arr.length;
         int cnt[] = new int[1001];
         for (int a : arr) {
