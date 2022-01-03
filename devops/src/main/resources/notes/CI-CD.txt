@@ -1,0 +1,11 @@
+Continuous Integration is packed with
+1)Commit code
+2)Build /Compile
+3)Test Code Unit Test / Integration Test
+4) Package (Push to nexus the jar created)
+
+II)Continous Deployment
+5)Deploy to code to servers
+
+III)Continuous Delivery
+6)Stage to production
