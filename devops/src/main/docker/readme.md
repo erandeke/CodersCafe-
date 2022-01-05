@@ -46,7 +46,7 @@ docker container unpause {container id}
 **kill docker container**
 docker container kill {container id}
 
-**docker system commands**
+# **Docker system commands**
 
 1)Check disk usage: docker system df
 
@@ -57,7 +57,8 @@ docker container kill {container id}
 **More on docker-hub:**
 https://docs.docker.com/docker-hub/
 
-**Docker Architecture**
+# **Docker Architecture**
+
 ![img.png](img.png)
 
 **Docker client** - Where docker commands are executed
@@ -66,7 +67,7 @@ https://docs.docker.com/docker-hub/
 
 **Container** : Once the image is downloaded from hub daemon is responsible for starting container
 
-**Questions And Ans:**
+# **Questions And Ans:**
 
 1)Can we remove docker image wher container is stopped or running? A: No , we need to remove the container then only we
 can delete the docker image from local
