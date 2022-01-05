@@ -26,7 +26,7 @@ docker image inspect {image id}
 **How to remove an image ?**
 docker image remove {image id}
 
-# **Container commands** :
+# **Container commands**
 
 **check container running**
 docker container -ls
