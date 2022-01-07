@@ -81,5 +81,6 @@ ungracefull way and docker container stop will stop the application in gracefull
 
 5)How to allocate memory to container? A: docker container -p run port:port -m 512m {repo}
 
-
+6)In docker file what is difference between CMD and Entrypoint to launch an application ? A: CMD will get overriden if
+we write any command while executing docker file but not the case with Entry Point
 
