@@ -61,7 +61,11 @@ docker push kedarkode/{name of image}
 -Docker caches the image from subsequent build to make the build run much 
 faster . Following is the snapshot for cache 
 
-![img_3.png](img_3.png)
+
+![](/Users/kedarerande/Desktop/Screenshot 2022-01-08 at 12.58.05 AM.png) Cache 
+
+
+
 
 
 **More on docker-hub:**
