@@ -54,6 +54,16 @@ docker container kill {container id}
 
 3)docker stats : To allocate CPU memory : docker container run -p 5000:5000 -m {memory size} {repo}
 
+Docker push :
+docker push kedarkode/{name of image}
+
+# **Image Caching**
+-Docker caches the image from subsequent build to make the build run much 
+faster . Following is the snapshot for cache 
+
+![img_2.png](img_2.png)
+
+
 **More on docker-hub:**
 https://docs.docker.com/docker-hub/
 
