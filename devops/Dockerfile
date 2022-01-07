@@ -1,6 +1,10 @@
 # Build a JAR File
 FROM maven:3.8.2-jdk-8-slim AS build
+#current directory where we are creating new /app
 WORKDIR /home/app
+#for caching we have copied pom.xml to be used as cache 1st time it will build
+COPY pom.xml .
+#for caching it will have the files copied
 COPY . /home/app/
 RUN mvn -f /home/app/pom.xml clean package
 
