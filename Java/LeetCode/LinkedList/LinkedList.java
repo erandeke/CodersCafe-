@@ -16,7 +16,7 @@ import java.io.*;
   4)delete element at position
  */
 public class LinkedList {
-    Node head;
+    static Node head;
 
 
     static class Node {
@@ -68,7 +68,7 @@ public class LinkedList {
         //CASE 2 : when element is at middle
         while (curreNode != null && curreNode.data != key) {
             //store the previous node
-            prevNode = curreNode;
+            prevNode = curreNode.next;
             curreNode = curreNode.next;
 
         }
