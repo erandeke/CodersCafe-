@@ -21,21 +21,35 @@ A) **kubectl expose deployment** hello-world-rest-api --type=LoadBalancer --port
 
 
 kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+
 kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+
 kubectl scale deployment hello-world-rest-api --replicas=3
+
 kubectl delete pod hello-world-rest-api-58ff5dd898-62l9d
+
 kubectl autoscale deployment hello-world-rest-api --max=10 --cpu-percent=70
+
 kubectl edit deployment hello-world-rest-api #minReadySeconds: 15
+
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
 
 gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
+
 kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+
 kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+
 kubectl get events --sort-by=.metadata.creationTimestamp
+
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+
 kubectl get events --sort-by=.metadata.creationTimestamp
+
 kubectl get componentstatuses
+
 kubectl get pods --all-namespaces
 
 kubectl get events
