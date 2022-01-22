@@ -5,8 +5,6 @@ A: https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
 [2)**Clusters:**
 
 
-![](/Users/kedarerande/Desktop/Screenshot 2022-01-21 at 3.53.24 PM.png)
-
 A: Combination of master nodes and worker nodes to manage the load
 
 Q) How to create kubernetes deployment for service ?
@@ -31,12 +29,10 @@ Now to achieve zero downtime deployments K8 will add one pod for version2 .Now t
 will be start roudting to ver2 as well.Simultaneously it will start scaling up the 
 pod for ver2 and scaling down for ver1 so at the end 
 
-![](/Users/kedarerande/Desktop/Screenshot 2022-01-22 at 10.33.19 PM.png) 
-
 
 Ver2 will have all the active pods service traffic and for ver1 the pods are scaled down
 
-<img width="1440" alt="Screenshot 2022-01-22 at 10 33 19 PM" src="https://user-images.githubusercontent.com/25060762/150648442-20e4d9eb-7455-4d6b-84ca-69eedb24f9ab.png">
+<img width="500" alt="Screenshot 2022-01-22 at 10 33 19 PM" src="https://user-images.githubusercontent.com/25060762/150648442-20e4d9eb-7455-4d6b-84ca-69eedb24f9ab.png">
 
 
 # **Commands:**
