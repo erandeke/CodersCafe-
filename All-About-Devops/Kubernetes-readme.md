@@ -51,6 +51,7 @@ replicas
 
 4)etcd: Its an distributed database that store the config 
 for K8 . Whatever config changes are made it stores in DB
+example : etcd1 and etcd2
 
 
 # **Commands:**
