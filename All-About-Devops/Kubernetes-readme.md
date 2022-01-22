@@ -89,6 +89,8 @@ kubectl get events --sort-by=.metadata.creationTimestamp
 
 **Kube Master Node status**
 kubectl get componentstatuses
+-It gives the status of scheduler
+controller manager, API service and etcd1
 
 kubectl get pods --all-namespaces
 
