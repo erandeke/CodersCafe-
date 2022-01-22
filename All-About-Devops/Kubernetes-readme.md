@@ -15,6 +15,27 @@ A) **kubectl create deployment** hello-world-rest-api --image=in28min/hello-worl
 Q)How to expose the endpoint to the world?
 A) **kubectl expose deployment** hello-world-rest-api --type=LoadBalancer --port=8080
 
+Q) What is POD ? All you want to know :
+A) https://www.youtube.com/watch?v=k0fzMZgpp14
+
+Q)What happens if we delete pod?
+A) Every pod is associated with replica set . Replica set maintains the dedicated pods
+If we delete the pod then replica set will create the new one 
+
+Q) What is the role of replica set ?
+A) A ReplicaSet's purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+
+Q)How deployment stage works in Kubernetes?
+A) Let say RS is holding version 1 for 2 pods . Now we deploy an image version 2.
+Now to achieve zero downtime deployments K8 will add one pod for version2 .Now the traffic
+will be start roudting to ver2 as well.Simultaneously it will start scaling up the 
+pod for ver2 and scaling down for ver1 so at the end 
+
+![](/Users/kedarerande/Desktop/Screenshot 2022-01-22 at 10.33.19 PM.png) 
+
+
+Ver2 will have all the active pods service traffic and for ver1 the pods are scaled down
+
 ![img_3.png](img_3.png)
 
 # **Commands:**
@@ -24,14 +45,17 @@ kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-
 
 kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
 
+**Scale ReplicaSet**
 kubectl scale deployment hello-world-rest-api --replicas=3
 
-kubectl delete pod hello-world-rest-api-58ff5dd898-62l9d
+**Delete Kube Pod**
+kubectl **delete** pod hello-world-rest-api-58ff5dd898-62l9d
 
 kubectl autoscale deployment hello-world-rest-api --max=10 --cpu-percent=70
 
 kubectl edit deployment hello-world-rest-api #minReadySeconds: 15
 
+**Image deployment** 
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
 
 gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
@@ -52,9 +76,10 @@ kubectl get componentstatuses
 
 kubectl get pods --all-namespaces
 
-kubectl get events
+kubectl get events -> To get what all events have ocurred for example Pull image , asigming POD, scaling replicaset
 
-kubectl get pods
+kubectl get pods-> Gets all pods running . Pod is collection of container that runs on host
+They are created by client and scheduled on host
 
 kubectl get replicaset
 
