@@ -36,7 +36,8 @@ pod for ver2 and scaling down for ver1 so at the end
 
 Ver2 will have all the active pods service traffic and for ver1 the pods are scaled down
 
-![img_3.png](img_3.png)
+<img width="1440" alt="Screenshot 2022-01-22 at 10 33 19 PM" src="https://user-images.githubusercontent.com/25060762/150648442-20e4d9eb-7455-4d6b-84ca-69eedb24f9ab.png">
+
 
 # **Commands:**
 
