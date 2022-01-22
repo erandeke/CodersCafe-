@@ -35,6 +35,24 @@ Ver2 will have all the active pods service traffic and for ver1 the pods are sca
 <img width="500" alt="Screenshot 2022-01-22 at 10 33 19 PM" src="https://user-images.githubusercontent.com/25060762/150648442-20e4d9eb-7455-4d6b-84ca-69eedb24f9ab.png">
 
 
+Q)Kubernetes Architecture 
+A) https://www.youtube.com/watch?v=cvziZliY-AI
+
+1)K8 comprises of master node and worker node
+In master, it has 
+1)API server : whatever we do in K8 it goes via API server 
+Its an entry point for K8 to operate on user commands
+
+2)Scheduler : It schedules the workload on different nodescomp available 
+It decides where to run which container 
+
+3)Controller Manager : It takes the task of managing, scaling ,
+replicas 
+
+4)etcd: Its an distributed database that store the config 
+for K8 . Whatever config changes are made it stores in DB
+
+
 # **Commands:**
 
 
@@ -69,6 +87,7 @@ kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/h
 
 kubectl get events --sort-by=.metadata.creationTimestamp
 
+**Kube Master Node status**
 kubectl get componentstatuses
 
 kubectl get pods --all-namespaces
@@ -82,6 +101,7 @@ kubectl get replicaset
 
 kubectl get deployment
 
+**Service**
 kubectl get service
 
 kubectl get pods -o wide

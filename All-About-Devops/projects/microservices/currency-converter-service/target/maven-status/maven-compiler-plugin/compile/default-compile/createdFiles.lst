@@ -1,0 +1,6 @@
+com/kedar/currency/converter/service/resource/CurrencyExchangeServiceProxy.class
+com/kedar/currency/converter/service/resource/CurrencyConversionController.class
+com/kedar/currency/converter/service/environment/InstanceInformationService.class
+com/kedar/currency/converter/service/CurrencyConversionServiceApplication.class
+com/kedar/currency/converter/service/environment/EnvironmentConfigurationLogger.class
+com/kedar/currency/converter/service/resource/CurrencyConversionBean.class
