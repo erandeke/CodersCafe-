@@ -165,16 +165,19 @@ kubectl version
 
 gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
 
+**Rollout History**
 kubectl rollout history deployment hello-world-rest-api
 
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.3.RELEASE --record=true
 
 kubectl rollout undo deployment hello-world-rest-api --to-revision=1
 
+**Check logs**
 kubectl logs hello-world-rest-api-58ff5dd898-6ctr2
 
 kubectl logs -f hello-world-rest-api-58ff5dd898-6ctr2
 
+**Create config yaml**
 kubectl get deployment hello-world-rest-api -o yaml
 
 kubectl get deployment hello-world-rest-api -o yaml > deployment.yaml
@@ -185,10 +188,23 @@ kubectl apply -f deployment.yaml
 
 kubectl get all -o wide
 
+**Delete all pods,replica sets,services and deployment**
 kubectl delete all -l app=hello-world-rest-api
+
+Example:
+kedarerande@Kedars-MacBook-Air hello-world-rest-api % kubectl delete all -l app=hello-world-rest-api
+pod "hello-world-rest-api-7ddff5dfc6-665z8" deleted
+pod "hello-world-rest-api-7ddff5dfc6-fh25d" deleted
+**service "hello-world-rest-api" deleted**
+
+**deployment.apps "hello-world-rest-api" deleted**
+
+**replicaset.apps "hello-world-rest-api-687d9c7bc7" deleted**
+
 
 kubectl get svc --watch
 
+**Check difference in old and new yaml (changed versions)**
 kubectl diff -f deployment.yaml
 
 kubectl delete deployment hello-world-rest-api
@@ -235,8 +251,13 @@ kubectl get po
 
 kubectl delete all -l app=hello-world-rest-api
 
+**Get all details** 
+
+about pods, services,deployment and replicaset
+
 kubectl get all
 
+**How to use yaml for deployment** 
 kubectl apply -f deployment.yaml
 
 kubectl apply -f ../currency-conversion/deployment.yaml 
