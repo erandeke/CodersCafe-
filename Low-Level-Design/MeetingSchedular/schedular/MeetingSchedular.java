@@ -18,6 +18,8 @@ public class MeetingSchedular {
     List<MeetingHistory> meetingHistories;
 
 
+
+
     public Meeting bookMeetingRoom(int start, int end, User user) throws NoMeetingRoomAvailableException {
         //check for availability of meeting rooms;
         for (MeetingRoom meetingRoom : meetingRooms) {
