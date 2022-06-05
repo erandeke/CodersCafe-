@@ -34,5 +34,9 @@ How to run the game ?
 5) Check the result 
 6) If you wish to continue then type "YES" OR "QUIT" to exit.
 
+Some Gaming Fun
+
+<img width="1440" alt="Screenshot 2022-06-05 at 9 12 32 AM" src="https://user-images.githubusercontent.com/25060762/172034269-4292f060-ae88-41b5-9ddc-2dd861772b0d.png">
+
 
 Happy gaming!!
