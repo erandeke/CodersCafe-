@@ -15,7 +15,7 @@ Non Functional Requirements
 . Code should have good test coverage and should cover business APi's
 
 System Requirements 
-.  Download and extract the zip
+.  Built on MAC OS
 .  JDK 16 is used as building environment 
 .  MAVEN is used as build automation tool
 .  IDE - Intellij 
