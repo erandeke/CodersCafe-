@@ -71,61 +71,51 @@ public class ScoreCardGenerator {
         List<Integer> actionOnBalls = runsPerBall.get(0);
         while (over <= overs.getOverNumber() && indexForBattingOrder < playersList.size()) {
             for (int i = 0; i < actionOnBalls.size(); i++) {
-                if (actionOnBalls.get(i).equals(Constants.WICKET)) {
-                    Scorecard scorecard = scoreBoardPerTeams.get(teamName).get(playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber());
-                    totalNoOfBallsPlayedByEachPlayer = scorecard.getNoOfBallsPlayed() + 1;
-                    scorecard.setNoOfBallsPlayed(totalNoOfBallsPlayedByEachPlayer);
-                    indexForBattingOrder = indexForBattingOrder + 1; //get the next Batsman
-                    strikerIndex = indexForBattingOrder;
-                    rotationStrikeAlgorithm.setPosStriker(strikerIndex);
-                    totalNoOfWickets++;
-                    team.setTotalNoOfWickets(totalNoOfWickets);
-                    continue;
+                switch (actionOnBalls.get(i)) {
+                    case 1000:
+                        Scorecard scorecard = scoreBoardPerTeams.get(teamName).get(playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber());
+                        totalNoOfBallsPlayedByEachPlayer = scorecard.getNoOfBallsPlayed() + 1;
+                        scorecard.setNoOfBallsPlayed(totalNoOfBallsPlayedByEachPlayer);
+                        indexForBattingOrder = indexForBattingOrder + 1; //get the next Batsman
+                        strikerIndex = indexForBattingOrder;
+                        rotationStrikeAlgorithm.setPosStriker(strikerIndex);
+                        totalNoOfWickets++;
+                        team.setTotalNoOfWickets(totalNoOfWickets);
+                        break;
+                    case 1002:
+                    case 1003:
+                        extras++;
+                        team.setExtras(extras);
+                        break;
+                    case 1:
+                    case 3:
+                        computeScoresForRotatingStrikers(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
+                        rotationStrikeAlgorithm.rotateStriker(rotationStrikeAlgorithm.posStriker, rotationStrikeAlgorithm.posNonStriker);
+                        break;
+                    case 4:
+                        context.setScoreCalculationStrategy(new FoursScoreCalculationStrategy(new DefaultScoreCalcStrategy()));
+                        context.calculateScore(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
+                        break;
+                    case 6:
+                        context.setScoreCalculationStrategy(new SixesScoreCalculationStrategy(new DefaultScoreCalcStrategy()));
+                        context.calculateScore(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
+                        break;
+                    default:
+                        context.setScoreCalculationStrategy(new DefaultScoreCalcStrategy());
+                        context.calculateScore(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
+                        break;
 
                 }
-                if (actionOnBalls.get(i).equals(Constants.WIDE_BALL)) { //todo lets assume as Wide
-                    extras++;
-                    team.setExtras(extras);
-                    continue;
-
-                }
-
-                if (actionOnBalls.get(i).equals(Constants.NO_BALL)) { //todo lets assume as Noball
-                    extras++;
-                    team.setExtras(extras);
-                    continue;
-
-                }
-
-
-                if (actionOnBalls.get(i).equals(Constants.ONE) || actionOnBalls.get(i).equals(Constants.THREE)) {
-                    computeScoresForRotatingStrikers(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
-                    rotationStrikeAlgorithm.rotateStriker(rotationStrikeAlgorithm.posStriker, rotationStrikeAlgorithm.posNonStriker);
-                } else if (actionOnBalls.get(i) == Constants.SIX) {
-                    context.setScoreCalculationStrategy(new SixesScoreCalculationStrategy(new DefaultScoreCalcStrategy()));
-                    context.calculateScore(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
-                } else if (actionOnBalls.get(i) == Constants.FOUR) {
-                    context.setScoreCalculationStrategy(new FoursScoreCalculationStrategy(new DefaultScoreCalcStrategy()));
-                    context.calculateScore(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
-                } else {
-                    context.setScoreCalculationStrategy(new DefaultScoreCalcStrategy());
-                    context.calculateScore(teamName, playersList.get(rotationStrikeAlgorithm.getPosStriker()).getPlayerNumber(), actionOnBalls.get(i), scoreBoardPerTeams);
-                }
-
             }
             commentaryService.printIndividualScoresFromTheTeam(teamName, over, scoreBoardPerTeams);
             over++;
             isOverChanged = true;
             if (isOverChanged) {
-                actionOnBalls = runsPerBall.get(1); //get the next over
+                actionOnBalls = runsPerBall.get(1);
                 rotationStrikeAlgorithm.rotateStriker(rotationStrikeAlgorithm.getPosStriker(), rotationStrikeAlgorithm.getPosNonStriker());
             }
 
         }
         commentaryService.calculateTeamScoreAndWickets(team, scoreBoardPerTeams);
-
-
     }
-
-
 }
