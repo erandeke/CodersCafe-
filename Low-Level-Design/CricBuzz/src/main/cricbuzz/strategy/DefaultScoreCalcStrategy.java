@@ -5,6 +5,9 @@ import src.main.cricbuzz.models.Scorecard;
 
 import java.util.Map;
 
+/**
+ * class :DefaultScoreCalculationStrategy : For deciding various strategies to calculate scores and aspects.
+ */
 public class DefaultScoreCalcStrategy implements ScoreCalculationStrategy {
 
 

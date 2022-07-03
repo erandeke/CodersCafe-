@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * ScoreCardGenerator : Utility to generate score card for both the playing teams
+ */
 public class ScoreCardGenerator {
 
 
@@ -48,8 +50,17 @@ public class ScoreCardGenerator {
         this.scoreBoardPerTeams = scoreBoardPerTeams;
     }
 
+    /**
+     * @param team        : Team playing currently
+     * @param overs       :Overs allowed to play
+     * @param playersList : Battter list
+     * @param runsPerBall : Runs score per ball
+     *                    WICKET code : 1000
+     *                    Wide Ball code: 1002
+     *                    No Ball code : 1003
+     */
 
-    public void generateScoreCard(Team team, Overs overs, List<Players> playersList, List<List<Integer>> runsPerBall, List<Bowler> bowlers) {
+    public void generateScoreCard(Team team, Overs overs, List<Players> playersList, List<List<Integer>> runsPerBall) {
         if (!scoreBoardPerTeams.containsKey(team.getTeamName())) {
             scoreBoardPerTeams.put(team.getTeamName(), new HashMap<>());
             for (Players players : playersList) {

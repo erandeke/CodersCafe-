@@ -7,6 +7,11 @@ import java.util.Map;
 
 public class CommentaryService {
 
+    /**
+     * @param team               Playing team
+     * @param scoreBoardPerTeams Scoreboard per team
+     *                           Utility method to calculate the team score + extras
+     */
 
     public void calculateTeamScoreAndWickets(Team team, Map<String, Map<String, Scorecard>> scoreBoardPerTeams) {
         Map<String, Scorecard> scoreMap = scoreBoardPerTeams.get(team.getTeamName());
@@ -20,11 +25,17 @@ public class CommentaryService {
         System.out.println("Wickets Fallen   " + "  " + team.getTeamName() + " is " + team.getTotalNoOfWickets());
     }
 
+    /**
+     * @param teamName            : Playing team
+     * @param over                : Over played
+     * @param scoreBoardPerTeams: scoreboard
+     *                            Utility method to display the Individual Scores after every over
+     */
 
     public void printIndividualScoresFromTheTeam(String teamName, int over, Map<String, Map<String, Scorecard>> scoreBoardPerTeams) {
         Map<String, Scorecard> scoreMap = scoreBoardPerTeams.get(teamName);
         System.out.println();
-        System.out.println("For team" + "   " + teamName + " " + "Below is the scoreboard for Over" + "  " + over);
+        System.out.println("For team" + "   " + teamName + " " + "Below is the scoreboard");
         scoreMap.forEach((K, V) -> System.out.println("Player is" + "  " + K + " " + V.toString()));
     }
 }

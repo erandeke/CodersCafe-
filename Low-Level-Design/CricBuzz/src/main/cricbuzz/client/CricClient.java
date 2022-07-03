@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+/**
+ * Client module : It takes inputs for generating scoreboard
+ */
 public class CricClient {
     public static void main(String[] args) {
 
@@ -66,11 +69,11 @@ public class CricClient {
         ScoreCardGenerator scoreCardGenerator = new ScoreCardGenerator();
 
         //Client starts play for Team1
-        scoreCardGenerator.generateScoreCard(team, overs, playersListTeam1, runsOnBallsForTeam1, bowlers);
+        scoreCardGenerator.generateScoreCard(team, overs, playersListTeam1, runsOnBallsForTeam1);
 
         //Client starts play for Team2
 
-        scoreCardGenerator.generateScoreCard(oppositeTeam, overs, playersListTeam2, runsOnBallsForTeam2, bowlers);
+        scoreCardGenerator.generateScoreCard(oppositeTeam, overs, playersListTeam2, runsOnBallsForTeam2);
 
         //Time to calculate Results
         ResultCalculationService resultCalculationService = new ResultCalculationService();
