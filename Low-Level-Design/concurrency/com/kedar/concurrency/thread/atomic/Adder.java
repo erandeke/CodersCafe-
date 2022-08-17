@@ -1,25 +1,24 @@
-package com.kedar.concurrency.thread.racecondition;
+package com.kedar.concurrency.thread.atomic;
 
-import com.sun.source.doctree.AttributeTree;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Adder implements Runnable {
 
-    private Value value;
+    AtomicInteger value = new AtomicInteger(0);
 
-    public Adder(Value value) {
+    public Adder(AtomicInteger value) {
         this.value = value;
     }
 
     @Override
     public void run() {
-
         for (int i = 0; i < 100; i++) {
             try {
                 Thread.sleep(5);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            value.value += i;
+            value.incrementAndGet();
         }
     }
 }

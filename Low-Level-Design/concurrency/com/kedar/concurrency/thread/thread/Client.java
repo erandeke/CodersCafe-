@@ -1,20 +1,23 @@
 package com.kedar.concurrency.thread.thread;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        for (int i = 0; i < 100; i++) {
-            Thread t = new Thread(new NumberPrinter(i));
-            t.start();
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        long currentTime = System.currentTimeMillis();
+        System.out.println("currentTime" + currentTime);
+        for (int i = 0; i < 1000; i++) {
+            executorService.submit(new NumberPrinter(i));
 
         }
-        String str = "Hi Kedar Erande";
-
-
-        for (int i = 0; i < str.length(); i++) {
-            Thread t1 = new Thread(new CharPrinter(str.charAt(i)));
-            t1.start();
-        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("endTime" + endTime);
+        Thread.sleep(1000);
+        System.out.println("Total time taken to print numbers in ms" + "  " + (endTime - currentTime));
 
 
     }
